@@ -176,6 +176,7 @@ export async function POST(request: Request) {
       { status: 500 }
     );
     }
+  }
 
 // PUT - Update a deal
 export async function PUT(request: Request) {
