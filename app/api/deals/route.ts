@@ -175,5 +175,86 @@ export async function POST(request: Request) {
       { success: false, error: 'Failed to create deal' },
       { status: 500 }
     );
+
+// PUT - Update a deal
+export async function PUT(request: Request) {
+  try {
+    const { searchParams } = new URL(request.url)
+    const id = searchParams.get('id')
+    
+    if (!id) {
+      return NextResponse.json(
+        { success: false, error: 'Deal ID is required' },
+        { status: 400 }
+      )
+    }
+
+    const body = await request.json()
+    const dealIndex = MOCK_DEALS.findIndex((deal) => deal.id === parseInt(id))
+
+    if (dealIndex === -1) {
+      return NextResponse.json(
+        { success: false, error: 'Deal not found' },
+        { status: 404 }
+      )
+    }
+
+    // Update the deal
+    MOCK_DEALS[dealIndex] = {
+      ...MOCK_DEALS[dealIndex],
+      ...body,
+      id: parseInt(id),
+    }
+
+    return NextResponse.json({
+      success: true,
+      deal: MOCK_DEALS[dealIndex],
+      message: 'Deal updated successfully',
+    })
+  } catch (error) {
+    return NextResponse.json(
+      { success: false, error: 'Failed to update deal' },
+      { status: 500 }
+    )
+  }
+}
+
+// DELETE - Delete a deal
+export async function DELETE(request: Request) {
+  try {
+    const { searchParams } = new URL(request.url)
+    const id = searchParams.get('id')
+    
+    if (!id) {
+      return NextResponse.json(
+        { success: false, error: 'Deal ID is required' },
+        { status: 400 }
+      )
+    }
+
+    const dealIndex = MOCK_DEALS.findIndex((deal) => deal.id === parseInt(id))
+
+    if (dealIndex === -1) {
+      return NextResponse.json(
+        { success: false, error: 'Deal not found' },
+        { status: 404 }
+      )
+    }
+
+    // Remove the deal
+    const deletedDeal = MOCK_DEALS.splice(dealIndex, 1)[0]
+
+    return NextResponse.json({
+      success: true,
+      deal: deletedDeal,
+      message: 'Deal deleted successfully',
+    })
+  } catch (error) {
+    return NextResponse.json(
+      { success: false, error: 'Failed to delete deal' },
+      { status: 500 }
+    )
+  }
+}
   }
 }
