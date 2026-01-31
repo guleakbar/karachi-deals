@@ -175,6 +175,7 @@ export async function POST(request: Request) {
       { success: false, error: 'Failed to create deal' },
       { status: 500 }
     );
+    }
 
 // PUT - Update a deal
 export async function PUT(request: Request) {
