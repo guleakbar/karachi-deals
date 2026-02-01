@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { FaPlane, FaMapMarkerAlt, FaEnvelope, FaStar, FaFire } from 'react-icons/fa'
+import CosmicBackground from '@/components/CosmicBackground'
 
 export default function Home() {
   const [email, setEmail] = useState('')
@@ -36,6 +37,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-purple-700 to-pink-600">
+            <CosmicBackground />
       {/* Animated Background Pattern */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRjMC0yLjItMS44LTQtNC00cy00IDEuOC00IDQgMS44IDQgNCA0IDQtMS44IDQtNHptLTggMGMwLTIuMi0xLjgtNC00LTRzLTQgMS44LTQgNCAxLjggNCA0IDQgNC0xLjggNC00em0tOCAwYzAtMi4yLTEuOC00LTQtNHMtNCAxLjgtNCA0IDEuOCA0IDQgNCA0LTEuOCA0LTR6bTI0IDBjMC0yLjItMS44LTQtNC00cy00IDEuOC00IDQgMS44IDQgNCA0IDQtMS44IDQtNHoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-10"></div>
 
@@ -52,7 +54,7 @@ export default function Home() {
             transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
             className="inline-block mb-6"
           >
-            <FaPlane className="text-8xl text-white drop-shadow-2xl" />
+            <FaPlane className="text-8xl text-white drop-shadow-2xl" animate-float" />
           </motion.div>
 
           <h1 className="text-7xl md:text-8xl font-extrabold text-white mb-6 drop-shadow-lg">
