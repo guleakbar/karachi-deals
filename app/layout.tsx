@@ -1,8 +1,8 @@
 import './globals.css'
 
 export const metadata = {
-  title: 'Karachi Deals - Handpicked Flight Deals from Karachi',
-  description: 'Find the best international roundtrip flight deals from Karachi. Save up to 70% on flights to Dubai, London, Bangkok and more.',
+  title: 'Furren - Handpicked Flight Deals Worldwide',
+  description: 'Find the best international roundtrip flight deals Worldwide. Save up to 70% on flights to Dubai, London, Bangkok and more.',
 }
 
 export default function RootLayout({
