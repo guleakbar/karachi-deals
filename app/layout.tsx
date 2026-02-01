@@ -1,8 +1,14 @@
-import './globals.css'
+// app/layout.tsx
+import "./globals.css"
+import type { Metadata } from "next"
 
-export const metadata = {
-  title: 'Furren - Handpicked Flight Deals Worldwide',
-  description: 'Find the best international roundtrip flight deals Worldwide. Save up to 70% on flights to Dubai, London, Bangkok and more.',
+export const metadata: Metadata = {
+  title: "Furren – Flight Deals from Karachi",
+  description:
+    "Furren finds the best round‑trip flight deals from Karachi to top destinations worldwide.",
+  icons: {
+    icon: "/favicon.ico",
+  },
 }
 
 export default function RootLayout({
@@ -12,7 +18,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className="min-h-screen bg-slate-950 text-slate-50 antialiased">
+        {children}
+      </body>
     </html>
   )
 }
