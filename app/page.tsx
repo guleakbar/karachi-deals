@@ -56,7 +56,7 @@ export default function Home() {
           </motion.div>
 
           <h1 className="text-7xl md:text-8xl font-extrabold text-white mb-6 drop-shadow-lg">
-            Karachi <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">Deals</span>
+            Furren <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">Deals</span>
           </h1>
           
           <motion.p 
@@ -65,7 +65,7 @@ export default function Home() {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="text-2xl md:text-3xl text-purple-100 mb-4 font-light"
           >
-            ✈️ Handpicked Flight Deals from Karachi
+            ✈️ Handpicked Flight Deals Worldwide
           </motion.p>
 
           <motion.p
@@ -209,7 +209,7 @@ export default function Home() {
             </Link>
           </p>
           <p className="text-sm">
-            © 2026 Karachi Deals. Finding you the best flight deals from Karachi. 🌍✈️
+            © 2026 Furren. Finding you the best flight deals Worldwide. 🌍✈️
           </p>
         </motion.footer>
       </main>
