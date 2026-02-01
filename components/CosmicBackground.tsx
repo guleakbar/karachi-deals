@@ -1,99 +1,18 @@
-'use client'
+// components/CosmicBackground.tsx
+"use client"
 
-import { useCallback } from 'react'
-import Particles from '@tsparticles/react'
-import { loadSlim } from '@tsparticles/slim'
-import type { Engine } from '@tsparticles/engine'
+import { motion } from "framer-motion"
 
 export default function CosmicBackground() {
-  const particlesInit = useCallback(async (engine: Engine) => {
-    await loadSlim(engine)
-  }, [])
-
+  // Now a subtle, clean gradient “glass” layer instead of busy cosmic particles
   return (
-    <Particles
-      id="cosmicParticles"
-      init={particlesInit}
-      className="absolute inset-0 z-0"
-      options={{
-        background: {
-          color: {
-            value: 'transparent',
-          },
-        },
-        fpsLimit: 120,
-        interactivity: {
-          events: {
-            onClick: {
-              enable: true,
-              mode: 'push',
-            },
-            onHover: {
-              enable: true,
-              mode: 'repulse',
-            },
-            resize: true,
-          },
-          modes: {
-            push: {
-              quantity: 4,
-            },
-            repulse: {
-              distance: 150,
-              duration: 0.4,
-            },
-          },
-        },
-        particles: {
-          color: {
-            value: ['#ffffff', '#fbbf24', '#f97316', '#a855f7'],
-          },
-          links: {
-            color: '#ffffff',
-            distance: 150,
-            enable: true,
-            opacity: 0.15,
-            width: 1,
-          },
-          move: {
-            direction: 'none',
-            enable: true,
-            outModes: {
-              default: 'bounce',
-            },
-            random: false,
-            speed: 1.5,
-            straight: false,
-          },
-          number: {
-            density: {
-              enable: true,
-              area: 800,
-            },
-            value: 80,
-          },
-          opacity: {
-            value: 0.5,
-            animation: {
-              enable: true,
-              speed: 1,
-              minimumValue: 0.1,
-            },
-          },
-          shape: {
-            type: ['circle', 'triangle'],
-          },
-          size: {
-            value: { min: 1, max: 3 },
-            animation: {
-              enable: true,
-              speed: 2,
-              minimumValue: 0.5,
-            },
-          },
-        },
-        detectRetina: true,
-      }}
-    />
+    <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10">
+      <motion.div
+        className="absolute -inset-[30%] bg-[radial-gradient(circle_at_top,_#38bdf820,_transparent_55%),radial-gradient(circle_at_bottom,_#22c55e15,_transparent_55%)]"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.2 }}
+      />
+    </div>
   )
 }
